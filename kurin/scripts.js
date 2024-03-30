@@ -27,15 +27,16 @@ const updateImage = index => {
   context.drawImage(img, 0, 0);
 }
 
+
+
 window.addEventListener('scroll', () => {  
   const scrollTop = html.scrollTop;
-  const maxScrollTop = html.scrollHeight - window.innerHeight;
+  const maxScrollTop = (html.scrollHeight - window.innerHeight) / 10;
   const scrollFraction = scrollTop / maxScrollTop;
   const frameIndex = Math.min(
     frameCount - 1,
     Math.ceil(scrollFraction * frameCount)
   );
-  console.log("hello");
   requestAnimationFrame(() => updateImage(frameIndex + 1))
 });
 
